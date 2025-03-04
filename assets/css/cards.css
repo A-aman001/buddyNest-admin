@@ -1,9 +1,9 @@
 .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 0.4fr);
+    gap: 1px;
     /* ลดช่องว่างระหว่างการ์ด */
-    padding: 20px;
+    padding: 30px;
     justify-content: center;
 }
 

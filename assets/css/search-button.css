@@ -6,7 +6,7 @@
     /* จัดให้ปุ่มอยู่ตรงกลาง */
     align-items: flex-start;
     /* จัดให้ปุ่มเริ่มจากด้านบน */
-    gap: 60px;
+    gap: 200px;
     /* ระยะห่างระหว่างปุ่ม */
     margin-top: 40px;
 }
@@ -22,7 +22,7 @@
 }
 
 .image-button img {
-    width: 120px;
+    width: 150px;
     transition: 0.3s;
     border-radius: 10px;
     cursor: pointer;

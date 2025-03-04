@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 
 <head>
     <!-- Meta -->
@@ -10,22 +10,25 @@
     <link rel="icon" href="../../img/โลโก้-2.png" type="image/icon type" sizes="16x16">
 
     <!-- Title -->
-    <title>Buddy Nest - Home page</title>
+    <title>Buddy Nest - โปรไฟล์ร้าน</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../assets/css/globals.css">
     <link rel="stylesheet" href="../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../assets/css/header.css">
     <link rel="stylesheet" href="../../assets/css/footer.css">
-    <link rel="stylesheet" href="../../assets/css/search-1.css">
-    <link rel="stylesheet" href="../../assets/css/cards.css">
-    <link rel="stylesheet" href="../../assets/css/search-button.css">
+    <link rel="stylesheet" href="../../assets/css/profile_shop.css">
+
+
 
     <!--JavaScript -->
     <script defer src="../../js/logo.js"></script>
-    <script defer src="../../js/search.js"></script>
-    <script defer src="../../js/cards.js"></script>
+    <script defer src="../../js/profile_shop.js"></script>
+
+
 </head>
+
+
 
 <body>
     <!-- Navbar -->
@@ -40,55 +43,50 @@
         </section>
     </nav>
 
-    <!-- Header -->
-    <header>
-        <img src="../../img/แบนเนอร์.png" alt="BuddyNest Banner">
-    </header>
+    <div class="container" id="profileView">
+        <h2>โปรไฟล์ร้าน</h2>
+        <img id="shopImageView" class="profile-img" src="" alt="โปรไฟล์ร้าน">
+        <p><strong>ชื่อร้าน:</strong> <span id="shopNameView"></span></p>
+        <p><strong>เวลาทำการ:</strong> <span id="shopTimeView"></span></p>
+        <p><strong>ที่อยู่:</strong> <span id="shopAddress"></span></p>
+        <p><strong>เบอร์โทร:</strong> <span id="phoneNumber"></span></p>
+        <p><strong>รายการบริการ:</strong><br> <span id="serviceListView"></span></p>
+        <button class="btn btn-edit" onclick="editProfile()">แก้ไข</button>
+    </div>
 
-    <article class="search-section">
-    
-        <!-- ปุ่มบริการต่างๆ -->
-        <div class="image-button-container">
-            <div class="image-button">
-                <a href="../../pages/serves/pet_care00.html">
-                    <img src="../../img/pet-5.png" alt="ปุ่มกรูมมิ่ง" style="width: 115px;">
-                </a>
-                <p class="button-description">เพิ่มบริการ</p>
-            </div>
+    <div class="container hidden" id="editForm">
+        <h2>แก้ไขโปรไฟล์ร้าน</h2>
+        <input type="file" id="uploadImage" accept="image/*">
+        <img id="shopImage" class="profile-img" src="" alt="โปรไฟล์ร้าน">
 
-            <div class="image-button">
-                <a href="../../pages/shop/profile_shop.html">
-                    <img src="../../img/pet-6.png" alt="ปุ่มฝากเลี้ยง" style="width: 133px;">
-                </a>
-                <p class="button-description">ร้านค้า</p>
-            </div>
-
+        <div>
+            <label for="shopName">ชื่อร้าน:</label>
+            <input type="text" id="shopName">
         </div>
 
-    </article>
+        <div>
+            <label for="shopTime">เวลาทำการ:</label>
+            <input type="text" id="shopTime">
+        </div>
 
-    <br>
-    
-    <section>
-        <strong style="padding: 50px;; color: #4c4848;">Services | บริการต่างๆ</strong>
-    </section>
+        <div>
+            <label for="shopAddressInput">ที่อยู่:</label>
+            <input type="text" id="shopAddress">
+        </div>
 
-    <article class="cards">
-        <section class="card">
-            <a href="../../pages/pet_care00.html">
-                <img src="../../img/pet-4.png" alt="Dog Bath" style="width: 80%; border-radius: 10px;">
-                <p>บริการกรูมมิ่ง</p>
-            </a>
-        </section>
-        <section class="card">
-            <a href="../../pages/pet_care02.html">
-                <img src="../../img/pet-3.png" alt="Pet Travel" style="width: 100%; border-radius: 10px;">
-                <p>บริการฝากเลี้ยง - ดูแลตามบ้าน</p>
-            </a>
-        </section>
+        <div>
+            <label for="phoneNumber">เบอร์โทร:</label>
+            <input type="text" id="phoneNumber">
+        </div>
 
-        
-    </article>
+        <div>
+            <label for="serviceList">รายการบริการ:</label>
+            <textarea id="serviceList" rows="4"></textarea>
+        </div>
+
+        <button class="btn btn-save" onclick="saveProfile()">บันทึก</button>
+        <button class="btn btn-cancel" onclick="cancelEdit()">ยกเลิก</button>
+    </div>
 
     <br><br>
     <footer class="main-footer">
@@ -138,7 +136,6 @@
     <footer class="bottom-footer">
         <p>© 2025 Buddy Nest. All Rights Reserved.</p>
     </footer>
-
 
 </body>
 

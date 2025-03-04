@@ -12,7 +12,7 @@ select, button, input {
     width: auto; /* ป้องกันการขยายตัวที่แตกต่างกัน */
 }
 .search-section {
-    background-color: #d9f6f8;
+    background-color: #FEFAF2;
     border-top: 1px solid #D9FBFC;
     border-bottom: 1px solid #D9FBFC;
     padding: 1rem 0;
