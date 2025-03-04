@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddy Nest - Sign In</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="img/โลโก้-2.png" type="image/icon" sizes="16x16">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #f6f2eb;
+        }
+
+        .signin-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .left-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fdeccb;
+        }
+
+        .left-section img {
+            height: 400px;
+        }
+
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+        }
+
+        .right-section img {
+            width: 200px;
+            margin-bottom: 50px;
+        }
+
+        .sign-in-form {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .input-field {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .input-field img {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 10px 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            display: block;
+            margin-bottom: 20px;
+            text-align: right;
+            font-size: 14px;
+            color: #777;
+            text-decoration: none;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .sign-in-button, .register-button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .sign-in-button {
+            background-color: #333;
+            color: white;
+        }
+
+        .sign-in-button:hover {
+            background-color: #555;
+        }
+
+        .register-button {
+            background-color: #ffe8b2;
+            color: black;
+        }
+
+        .register-button:hover {
+            background-color: #ffdb87;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signin-container">
+        <div class="left-section">
+            <img src="img/โลโก้-1.png" alt="BuddyNest Logo">
+        </div>
+
+        <div class="right-section">
+            <img src="img/sign-in.png" alt="Sign In Icon">
+            <form class="sign-in-form" id="signinForm">
+                <div id="error-message" class="error-message"></div>
+                <p style="font-size: 1rem;">Sign In</p><br>
+
+                <div class="input-field">
+                    <img src="img/user.png" alt="Email Icon">
+                    <input type="email" id="email" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="input-field">
+                    <img src="img/password.png" alt="Password Icon">
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword()">
+                        <i id="eye-icon" class="fas fa-eye"></i>
+                    </button>
+                </div>
+
+                <a href="forgot_your_password.html" class="forgot-password">Forget your password</a>
+
+                <div class="button-container">
+                    <button type="button" class="register-button" onclick="goToRegister()">Register</button>
+                    <button type="button" class="sign-in-button" onclick="handleSignIn()">Sign In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const eyeIcon = document.getElementById('eye-icon');
+            passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+            eyeIcon.classList.toggle('fa-eye');
+            eyeIcon.classList.toggle('fa-eye-slash');
+        }
+    
+        function handleSignIn() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessage = document.getElementById('error-message');
+    
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
+            if (!email || !password) {
+                errorMessage.textContent = 'Please fill in all fields!';
+            } else if (!emailPattern.test(email)) {
+                errorMessage.textContent = 'Invalid email format!';
+            } else if (password.length < 8) {
+                errorMessage.textContent = 'Password must be at least 8 characters!';
+            } else {
+                errorMessage.textContent = ''; // เคลียร์ข้อความ error
+                alert('Login Successful!');  // แจ้งเตือนเข้าสู่ระบบสำเร็จ
+                window.location.href = 'index.html';  // เปลี่ยนหน้าไปที่หน้าหลัก
+            }
+        }
+    
+        function goToRegister() {
+            window.location.href = 'registration.html'; // เปลี่ยนหน้าไปหน้าลงทะเบียน
+        }
+    </script>
+
+</body>
+
+</html>

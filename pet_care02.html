@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 
 <head>
     <!-- Meta -->
@@ -10,20 +10,23 @@
     <link rel="icon" href="img/โลโก้-2.png" type="image/icon type" sizes="16x16">
 
     <!-- Title -->
-    <title>Buddy Nest - Home page</title>
+    <title>Buddy Nest - Pet Services</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/globals.css">
     <link rel="stylesheet" href="assets/navbar.css">
     <link rel="stylesheet" href="assets/header.css">
     <link rel="stylesheet" href="assets/footer.css">
+    <link rel="stylesheet" href="assets/search-button.css">
     <link rel="stylesheet" href="assets/search-1.css">
+    <link rel="stylesheet" href="assets/pet_store.css">
     <link rel="stylesheet" href="assets/cards.css">
 
     <!--JavaScript -->
     <script defer src="js/logo.js"></script>
     <script defer src="js/search.js"></script>
     <script defer src="js/cards.js"></script>
+
 </head>
 
 <body>
@@ -40,7 +43,6 @@
             <a href="registration.html"><button>Register</button></a>
         </section>
     </nav>
-
     <!-- Header -->
     <header>
         <img src="img/แบนเนอร์.png" alt="BuddyNest Banner">
@@ -157,35 +159,82 @@
             </div>
         </div>
 
+        <!-- ปุ่มบริการต่างๆ -->
+        <div class="image-button-container">
+            <div class="image-button">
+                <a href="pet_care00.html">
+                    <img src="img/pet-5.png" alt="ปุ่มกรูมมิ่ง" style="width: 115px;">
+                </a>
+                <p class="button-description">บริการกรูมมิ่ง</p>
+            </div>
+
+            <div class="image-button">
+                <a href="pet_care02.html">
+                    <img src="img/pet-6.png" alt="ปุ่มฝากเลี้ยง" style="width: 120px;">
+                </a>
+                <p class="button-description">บริการฝากเลี้ยง - ดูแลตามบ้าน</p>
+            </div>
+
+            <div class="image-button">
+                <a href="grab_pet.html">
+                    <img src="img/pet-8.png" alt="ปุ่มรับส่งสัตว์" style="width: 125px;">
+                </a>
+                <p class="button-description">บริการรับ-ส่งสัตว์เลี้ยง</p>
+            </div>
+        </div>
 
     </article>
-    
-    <br>
+
+    <br><br>
+
+    <!-- Services -->
     <section>
-        <strong style="padding: 50px;; color: #4c4848;">Services | บริการต่างๆ</strong>
+        <strong style="padding: 50px;; color: #4c4848;">Pet Boarding - Home Care Services | บริการฝากเลี้ยง - ดูแลตามบ้าน</strong>
     </section>
 
     <article class="cards">
         <section class="card">
-            <a href="pet_care00.html">
-                <img src="img/pet-4.png" alt="Dog Bath" style="width: 80%; border-radius: 10px;">
-                <p>บริการกรูมมิ่ง</p>
+            <a href="petcare.html">
+                <img src="img/ร้าน-4.png" alt="Dog Bath" style="width: 100%; border-radius: 10px;">
+                <p>ร้าน: Pet Care</p>
             </a>
         </section>
         <section class="card">
-            <a href="pages/pet_care02.html">
-                <img src="img/pet-3.png" alt="Pet Travel" style="width: 100%; border-radius: 10px;">
-                <p>บริการฝากเลี้ยง - ดูแลตามบ้าน</p>
+            <a href="kailan.html">
+                <img src="img/ร้าน-5.png" alt="Pet Travel" style="width: 90%; border-radius: 10px;">
+                <p>ร้าน: ไขลาน</p>
             </a>
         </section>
 
         <section class="card">
-            <a href="grab_pet.html">
-                <img src="img/pet-1.png" alt="Pet Travel" style="width: 100%; border-radius: 10px;">
-                <p>บริการรับ-ส่งสัตว์เลี้ยง</p>
+            <a href="petory.html">
+                <img src="img/ร้าน-6.png" alt="Pet Travel" style="width: 100%; border-radius: 10px;">
+                <p>ร้าน : PETORY</p>
             </a>
         </section>
+
+        <section class="card">
+            <a href="petcare.html">
+                <img src="img/ร้าน-4.png" alt="Dog Bath" style="width: 100%; border-radius: 10px;">
+                <p>ร้าน : Pet Care</p>
+            </a>
+        </section>
+        <section class="card">
+            <a href="kailan.html">
+                <img src="img/ร้าน-5.png" alt="Pet Travel" style="width: 90%; border-radius: 10px;">
+                <p>ร้าน : ไขลาน</p>
+            </a>
+        </section>
+
+        <section class="card">
+            <a href="petory.html">
+                <img src="img/ร้าน-6.png" alt="Pet Travel" style="width: 100%; border-radius: 10px;">
+                <p>ร้าน : PETORY</p>
+            </a>
+        </section>
+
     </article>
+
 
     <br><br><br>
     <footer class="main-footer">
@@ -234,10 +283,7 @@
 
     <footer class="bottom-footer">
         <p>© 2025 Buddy Nest. All Rights Reserved.</p>
-
     </footer>
-
-
 </body>
 
 </html>
