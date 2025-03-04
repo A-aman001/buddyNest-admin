@@ -10,99 +10,30 @@
     <link rel="icon" href="../../img/โลโก้-2.png" type="image/icon type" sizes="16x16">
 
     <!-- Title -->
-    <title>Buddy Nest - โปรไฟล์ร้าน</title>
+    <title>Buddy Nest - แก้ไขบริการ</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../assets/css/header.css">
-    <link rel="stylesheet" href="../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../assets/css/globals.css">
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
     <link rel="stylesheet" href="../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../assets/css/search-1.css">
+    <link rel="stylesheet" href="../../assets/css/cards.css">
+    <link rel="stylesheet" href="../../assets/css/results.css">
 
-    <!-- JavaScript -->
-    <script src="../../js/logo.js"></script>
-
-    <style>
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            background: #fff;
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile-img {
-            width: 400px;
-            height: 300px;
-            border-radius: 15px;
-            object-fit: cover;
-            display: block;
-            margin: 0 auto 15px;
-            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .shop-info {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .service-box {
-            background-color: #bde3e3;
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 15px;
-            text-align: left;
-            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-box h3 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-            color: #333;
-        }
-
-        .service-list {
-            font-size: 1rem;
-            margin-left: 20px;
-        }
-
-        .btn-re {
-            display: inline-block;
-            margin-top: 30px;
-            background: #d22d2d;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s ease-in-out;
-        }
-
-        .btn-y {
-            display: inline-block;
-            margin-top: 30px;
-            background: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s ease-in-out;
-        }
-
-        .btn:hover {
-            background: #388E3C;
-        }
-    </style>
+    <!--JavaScript -->
+    <script defer src="../../js/logo.js"></script>
+    <script defer src="../../js/search.js"></script>
+    <script defer src="../../js/results.js"></script>
 </head>
 
+
+
 <body>
+    <!-- Navbar -->
     <nav>
         <section class="logo-container">
-            <img src="../../img/โลโก้-2.png" alt="BuddyNest Logo" class="logo" onclick="gohome()">
+            <img src="../../img/โลโก้-2.png" alt="BuddyNest Logo" class="logo" onclick="goHome()">
         </section>
 
         <section class="auth-buttons">
@@ -111,27 +42,22 @@
         </section>
     </nav>
     <br><br>
-
-
     <div class="container">
-        <h2>โปรไฟล์ร้าน</h2>
-        <img id="shopImage" class="profile-img" src="" alt="โปรไฟล์ร้าน">
-        <p class="shop-info"><strong>ชื่อร้าน:</strong> <span id="displayShopName">-</span></p>
-        <p class="shop-info"><strong>เวลาทำการ:</strong> <span id="displayShopTime">-</span></p>
-
-        <div class="service-box">
-            <h3>รายการบริการ</h3>
-            <ul class="service-list" id="displayServiceList">
-                <li>ไม่มีข้อมูล</li>
-            </ul>
+        <h2>แก้ไขบริการ</h2>
+        <div class="upload-box" onclick="document.getElementById('fileInput').click()">
+            <span>เลือกรูปภาพบริการ</span>
+            <img id="preview" style="display:none; max-width:100%;">
         </div>
-
-        <button class="btn-re" onclick="goBack()">ย้อนกลับ</button>
-        <button class="btn-y" onclick="confirmShop()">ยืนยัน</button>
-
+        <input type="file" id="fileInput" accept="image/*" style="display: none" onchange="previewImage(event)">
+        <input type="text" id="shopName" placeholder="ชื่อบริการ">
+        <textarea id="serviceDetails" placeholder="รายละเอียดบริการ"></textarea>
+        <textarea id="extraDetails" placeholder="รายละเอียดเพิ่มเติม"></textarea>
+        <button class="btn btn-add" onclick="addService()">เพิ่มบริการ</button>
+        <div class="service-list" id="serviceList"></div>
+        <button class="btn btn-cancel" onclick="saveAndGo()">บันทึกและไปต่อ</button>
     </div>
 
-
+    <br><br>
     <footer class="main-footer">
         <article class="footer-container">
             <!-- Team -->
@@ -168,10 +94,10 @@
             <!-- About -->
             <section class="about">
                 <h3>About Us</h3>
-                <p><a href="../index.html">หน้าหลัก</a></p>
-                <p><a href="../grab_pet.html">บริการรับส่งสัตว์เลี้ยง</a></p>
-                <p><a href="../pet_care00.html">บริการกรูมมิ่ง</a></p>
-                <p><a href="../mybooking-1.html">การจองของฉัน</a></p>
+                <p><a href="index.html">หน้าหลัก</a></p>
+                <p><a href="grab_pet.html">บริการรับส่งสัตว์เลี้ยง</a></p>
+                <p><a href="pet_care00.html">บริการกรูมมิ่ง</a></p>
+                <p><a href="mybooking-1.html">การจองของฉัน</a></p>
             </section>
         </article>
     </footer>
@@ -179,53 +105,6 @@
     <footer class="bottom-footer">
         <p>© 2025 Buddy Nest. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // ดึงข้อมูลจาก LocalStorage
-            const shopName = localStorage.getItem("shopName") || "Grooming & Cattery";
-            const shopTime = localStorage.getItem("shopTime") || "จันทร์-เสาร์ 10.00-20.00 น.";
-            const serviceList = localStorage.getItem("serviceList") ||
-                "แมว 1-4 เดือน: ขนสั้น 80.-/99.- | ขนยาว 90.-/109.-;" +
-                "แมวโต: ขนสั้น 110.-/129.- | ขนยาว 130.-/149.-;" +
-                "บริการเสริม: หยอดไรหู 20.- | หยอดเห็บหมัด 50.- | ตัดขนอุ้งเท้า 20.-";
-
-            const imageSrc = localStorage.getItem("shopImage");
-
-            // แสดงข้อมูลในหน้า HTML
-            document.getElementById("displayShopName").innerText = shopName;
-            document.getElementById("displayShopTime").innerText = shopTime;
-
-            const serviceArray = serviceList.split(";");
-            const serviceListElement = document.getElementById("displayServiceList");
-            serviceListElement.innerHTML = "";
-            serviceArray.forEach(service => {
-                if (service.trim() !== "") {
-                    const li = document.createElement("li");
-                    li.innerText = service;
-                    serviceListElement.appendChild(li);
-                }
-            });
-
-            // แสดงรูปภาพ
-            const shopImage = document.getElementById("shopImage");
-            if (imageSrc) {
-                shopImage.src = imageSrc;
-                shopImage.style.display = "block";
-            } else {
-                shopImage.style.display = "none";
-            }
-        });
-
-        function goBack() {
-            window.history.back();
-        }
-        function confirmShop() {
-            alert("เพิ่มร้านค้าสำเร็จ");
-        }
-
-    </script>
-
 </body>
 
 </html>
